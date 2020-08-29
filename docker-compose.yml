@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  database:
+    image: postgres:9.6
+    env_file: .env
+    environment:
+      - "POSTGRES_PASSWORD=${DB_PASS}"
+      - "POSTGRES_USER=${DB_USER}"
+    ports:
+      - "$DB_PORT:5432"
+    volumes:
+      - "/tmp/pgdata:/var/lib/postgresql/data"
